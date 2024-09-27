@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creations for the Love of My Life</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="icon" href="favicon-heart-8bit.png" type="image/png"> <!-- Add the 8-bit heart favicon -->
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Sticky Header -->
+    <header class="bg-pink-500 text-white p-6 sticky top-0 z-50 shadow-lg">
+        <h1 class="text-4xl font-bold text-center">Creations for the Love of My Life</h1>
+    </header>
+
+    <!-- Search Functionality -->
+    <div class="flex justify-center mt-6">
+        <input type="text" id="searchInput" placeholder="Search by reason (e.g., Birthday, Anniversary, etc.)" class="p-2 border rounded-lg w-1/2">
+    </div>
+
+    <!-- Grid Layout for Creations -->
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6">
+        <!-- Example Card for a Creation -->
+        <div class="bg-white p-4 rounded-lg shadow-lg card" data-reason="birthday">
+            <img src="images\31stbday.jpg" alt="Creation 1" class="w-full h-48 object-cover rounded-t-lg">
+            <div class="mt-4">
+                <h2 class="text-2xl font-semibold">31st Birthday</h2>
+                <p class="text-gray-500">Date: September 23, 2024</p>
+                <p class="text-gray-500">Reason: Birthday</p>
+                <a href="https://johnliter.github.io/mylove/" rel="noopener" target="_blank" class="text-blue-500 underline">View Project</a>
+            </div>
+        </div>
+
+        <!-- Example Card for Anniversary 
+        <div class="bg-white p-4 rounded-lg shadow-lg card" data-reason="anniversary">
+            <img src="creation2.jpg" alt="Creation 2" class="w-full h-48 object-cover rounded-t-lg">
+            <div class="mt-4">
+                <h2 class="text-2xl font-semibold">Anniversary Gift</h2>
+                <p class="text-gray-500">Date: February 14, 2024</p>
+                <p class="text-gray-500">Reason: Anniversary</p>
+                <a href="project2.html" class="text-blue-500 underline">View Project</a>
+            </div>
+        </div>-->
+
+        <!-- Add more cards here for each creation -->
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-purple-500 text-center text-white p-4">
+        <p>This page was lovingly created by John Liter for Christina</p>
+    </footer>
+
+    <!-- Include the TailwindCSS CDN and JavaScript -->
+</body>
+</html>
