@@ -4,10 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Poem for Stephanie</title>
+    <title>Love Poem for Christina</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="icon" href="favicon-heart-8bit.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        body {
+            background: linear-gradient(to bottom, #ffdee9, #b5fffc);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Great Vibes', cursive;
+        }
+
         .heart {
             animation: heartbeat 1.5s infinite;
         }
@@ -20,34 +30,67 @@
                 transform: scale(1.2);
             }
         }
+
+        #scrollIndicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 0.5rem;
+            background-color: #ff4b5c;
+            width: 0;
+            z-index: 50;
+        }
+
+        .poem-content {
+            font-family: 'Roboto', sans-serif; /* Change font to a more readable style */
+        }
     </style>
 </head>
 
-<body class="min-h-screen bg-gradient-to-b from-pink-100 to-blue-100 flex items-center justify-center">
+<body class="bg-gradient-to-b from-pink-100 to-blue-100 flex items-center justify-center">
 
-    <!-- Poem Container -->
-    <div class="bg-white bg-opacity-90 rounded-3xl p-10 shadow-2xl max-w-lg text-center">
+     <!-- Poem Container -->
+    <div class="bg-white bg-opacity-90 rounded-3xl p-10 shadow-2xl max-w-lg text-center relative">
         <h1 class="text-4xl font-bold text-pink-600 mb-6">A Love Poem for Christina</h1>
-        <p class="text-xl text-gray-800 leading-relaxed whitespace-pre-line">
-            On this Tuesday's gentle morn,<br>
-            My heart to you is sworn.<br>
-            In every whisper of the breeze,<br>
-            I find your love, my sweetest ease.<br><br>
+        <p class="text-xl text-gray-800 leading-relaxed whitespace-pre-line poem-content">
+            On this Tuesday's gentle morn,
+            My heart to you is sworn.
+            In every whisper of the breeze,
+            I find your love, my sweetest ease.<br>
 
-            Your smile, a beacon, bright and true,<br>
-            Guides me in all I do.<br>
-            With each day, my love does grow,<br>
-            In you, my dearest, I find my glow.<br><br>
+            Your smile, a beacon, bright and true,
+            Guides me in all I do.
+            With each day, my love does grow,
+            In you, my dearest, I find my glow.<br>
 
-            So on this Tuesday, I declare,<br>
-            My love for you beyond compare.<br>
-            Stephanie, my heart's delight,<br>
+            So on this Tuesday, I declare,
+            My love for you beyond compare.
+            Christina, my heart's delight,
             You make my world forever bright.
         </p>
-        <div class="mt-8 text-lg text-gray-700">
-            Made with <span class="heart text-red-500 text-2xl">♥</span> for Christina
+        
+        <!-- Surprise Button -->
+        <button id="surprise-btn" class="mt-6 bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-600">
+            Click for a Surprise!
+        </button>
+        <div id="surprise-message" class="hidden mt-4 text-xl text-pink-600">
+            "I love you more each and every day, Christina!"
         </div>
+
+        <!-- Footer -->
+        <footer class="mt-10 text-lg font-bold text-pink p-4  text-center w-full">
+            <p>Created on October 01, 2024, for my one true love, Christina.</p>
+            <p class="italic">"Every beat of my heart belongs to you."</p>
+        </footer>
     </div>
+
+
+    <script>
+        // Surprise message functionality
+        document.getElementById('surprise-btn').addEventListener('click', function () {
+            document.getElementById('surprise-message').classList.toggle('hidden');
+        });
+    </script>
 
 </body>
 
