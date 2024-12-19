@@ -1,0 +1,62 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.rain-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 50%; /* By default, circles */
+    animation: fall linear infinite;
+    opacity: 0; /* Start invisible */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%); /* Starts above the viewport */
+        opacity: 0.8; /* Becomes visible as it falls */
+    }
+    100% {
+        transform: translateY(100vh); /* Ends below the viewport */
+        opacity: 0; /* Fades out as it exits the screen */
+    }
+}
+
+/* Confetti colors */
+.confetti.pink { background-color: pink; }
+.confetti.purple { background-color: purple; }
+.confetti.skyblue { background-color: skyblue; }
+.confetti.yellow { background-color: yellow; }
+.confetti.green { background-color: lightgreen; }
+
+/* Confetti shapes */
+.confetti.square { border-radius: 0%; } /* Makes confetti square */
+.confetti.rectangle { width: 5px; height: 15px; border-radius: 0%; } /* Tall rectangles */
+
+/* Sticky header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white; /* Set background color to white */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better separation */
+}
+
+/* Emphasize the first letter of each word */
+section h2::first-letter {
+    font-size: 3rem; /* Larger font size for the first letter */
+    color: #ff69b4; /* Different color for emphasis (hot pink) */
+    font-weight: bold; /* Bold the first letter */
+}
