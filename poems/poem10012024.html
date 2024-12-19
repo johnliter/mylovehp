@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="icon" href="favicon-heart-8bit.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/components/back-button.css">
     <style>
         body {
             background: linear-gradient(to bottom, #ffdee9, #b5fffc);
@@ -16,19 +17,6 @@
             justify-content: center;
             align-items: center;
             font-family: 'Great Vibes', cursive;
-        }
-
-        .heart {
-            animation: heartbeat 1.5s infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
         }
 
         #scrollIndicator {
@@ -48,6 +36,12 @@
 </head>
 
 <body class="bg-gradient-to-b from-pink-100 to-blue-100 flex items-center justify-center">
+
+    <a href="https://johnliter.github.io/mylovehp/" rel="noopener noreferrer" class="back-button" aria-label="Return to homepage">
+        <div class="heart-icon">
+            <span class="back-text"></span>
+        </div>
+    </a>
 
      <!-- Poem Container -->
     <div class="bg-white bg-opacity-90 rounded-3xl p-10 shadow-2xl max-w-lg text-center relative">
