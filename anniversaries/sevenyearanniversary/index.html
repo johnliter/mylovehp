@@ -18,7 +18,6 @@
     </style>
     <link rel="stylesheet" href="styles.min.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     
@@ -31,20 +30,49 @@
         
         <!-- Anniversary Message -->
         <div class="message-container" role="main" aria-label="Anniversary Message">
-            <h1>Happy 7th Anniversary, Christina! <br>🚀❤️</h1>
+            <h1>Happy 7th Anniversary, to the that one and only special woman in my life! <br>🚀❤️</h1>
             <p>
-                To the love of my life, my co-pilot in this adventure through the stars, <br>
-                Happy Anniversary! Thank you for making my universe brighter every day. <br>
+                To the love of my life, <br>
+                my co-pilot in this adventure through the stars, <br>
+                Happy Anniversary! <br>
+                Thank you for making my universe brighter every day. <br>
+                You are the light of my life,<br>
+                and I am forever grateful for your presence. <br>
                 I love you to the moon and beyond! 💫
             </p>
             <p class="signature">Forever yours, <br> John</p>
+            <br>
+            <p>Click the buttons below to see what your getting!</p>
         </div>
-        
+
         <!-- Canvas for falling hearts -->
         <canvas id="hearts-canvas" aria-hidden="true"></canvas>
     </div>
-    
+
+    <!-- Add modal HTML after canvas element -->
+    <div id="customModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modalMessage"></div>
+        </div>
+    </div>
+
+    <!-- Move this block just before closing </body> to keep the DOM structure clean -->
+    <div class="coupon-container-fixed">
+        <button class="space-love-btn" onclick="showCosmicLoveCoupon()">
+            <span class="btn-text">✨</span>
+        </button>
+        <button class="space-love-btn" onclick="showStellarAffectionPass()">
+            <span class="btn-text"> 🌟</span>
+        </button>
+        <button class="space-love-btn" onclick="showIntergalacticPromise()">
+            <span class="btn-text"> 🌌</span>
+        </button>
+    </div> 
+
     <!-- JavaScript for falling hearts -->
     <script src="hearts.js" defer></script>
+    <script src="script.js" defer></script>
+
 </body>
 </html>

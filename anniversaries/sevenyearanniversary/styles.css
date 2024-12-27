@@ -42,6 +42,7 @@ body, html {
     justify-content: center;
     transform: translateZ(0);
     backface-visibility: hidden;
+    pointer-events: none;
 }
 
 .space-background::before {
@@ -55,6 +56,7 @@ body, html {
     -webkit-backdrop-filter: blur(1px); /* Safari support */
     backdrop-filter: blur(1px);
     z-index: 1;
+    pointer-events: none;
 }
 
 /* Twinkle effect for the background */
@@ -65,6 +67,7 @@ body, html {
 
 /* Centered Message Styling */
 .message-container {
+    margin-bottom: 100px;
     position: relative;
     z-index: 2;
     max-width: 80%;
@@ -73,6 +76,7 @@ body, html {
     background: var(--dark-overlay);
     border-radius: 10px;
     box-shadow: 0 0 20px var(--shadow);
+    z-index: 999;
 }
 
 .message-container:focus-within {
@@ -105,7 +109,7 @@ p {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: -2; /* Ensure it's below everything */
+    z-index: 0; /* Ensure it's below everything */
 }
 
 /* Media queries for responsiveness */
@@ -223,4 +227,110 @@ p {
     transform: rotate(-45deg) scale(1.2);
     filter: brightness(1.2);
     box-shadow: 0 0 50px rgba(255, 51, 102, 0.9);
+}
+
+.space-love-btn {
+    background: linear-gradient(45deg, #2b1055, #7597de);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 8px 20px; /* Reduced padding */
+    font-size: 16px; /* Reduced font size */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 200px; /* Reduced minimum width */
+    margin: 10px;
+    z-index: 3;
+    position: relative;
+}
+
+.space-love-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    background: linear-gradient(45deg, #7597de, #2b1055);
+}
+
+.btn-text {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.coupon-container-fixed {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 10px; /* Add spacing between buttons */
+    justify-content: center; /* Center the buttons */
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 600px) {
+    .coupon-container-fixed {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+        gap: 10px; /* Add spacing between buttons */
+    }
+}
+/* Add these styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background: linear-gradient(45deg, #2b1055, #7597de);
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px solid #ffffff3d;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    color: white;
+    box-shadow: 0 0 30px rgba(255,255,255,0.2);
+    animation: slideIn 0.3s;
+}
+
+.close-btn {
+    color: #ffffff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #ff69b4;
+}
+
+#modalMessage {
+    white-space: pre-line;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes slideIn {
+    from {transform: translateY(-100px); opacity: 0}
+    to {transform: translateY(0); opacity: 1}
 }
