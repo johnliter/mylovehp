@@ -5,6 +5,32 @@
     box-sizing: border-box;
 }
 
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    margin: 0;
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+}
+
+@media (max-width: 768px) {
+    .message-container {
+        width: 90%; /* Allow the container to shrink on smaller screens */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
 /* CSS Variables */
 :root {
     --primary-pink: #f48fb1;
