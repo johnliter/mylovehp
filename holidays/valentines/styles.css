@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Great Vibes', cursive;
+    color: #fff; /* White text for better contrast */
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+  
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/holidays/valentines/photos/vday.png'); /* Replace with your photo */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1); /* Very light overlay */
+    z-index: 2;
+  }
+  
+  .container {
+    background: linear-gradient(135deg, rgba(255, 214, 224, 0.2), rgba(255, 154, 158, 0.2)); /* Almost fully transparent gradient */
+    padding: 2rem;
+    border-radius: 15px;
+    -webkit-backdrop-filter: blur(5px); /* Less blur for more transparency */
+    backdrop-filter: blur(5px); /* Less blur for more transparency */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    z-index: 3; /* Ensure the container is above the overlay and background */
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #a71818; /* Romantic red for the heading */
+  }
+  
+  p {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+    color: #030000; /* Darker text for readability */
+  }
+  
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  /*  Back Button */
+
+.back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;  /* Reduced from 100px */
+  height: 100px;  /* Reduced from 120px */
+}
+
+.heart-icon {
+  width: 50px;  /* Reduced from 70px */
+  height: 50px; /* Reduced from 70px */
+  background-color: #ff3366;
+  position: relative;
+  transform: rotate(-45deg);
+  transition: all 0.3s ease;
+  margin: 10px; /* Reduced from 15px */
+  animation: heartbeat 1.5s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(255, 51, 102, 0.5);
+}
+
+.heart-icon:before,
+.heart-icon:after {
+  content: '';
+  width: 50px;  /* Reduced from 70px */
+  height: 50px; /* Reduced from 70px */
+  position: absolute;
+  border-radius: 50%;
+  background-color: #ff3366;
+}
+
+.heart-icon:before {
+  top: -25px;  /* Reduced from -35px */
+  left: 0;
+}
+
+.heart-icon:after {
+  top: 0;
+  left: 25px;  /* Reduced from 35px */
+}
+
+.back-button::after {
+  content: 'Back to Homepage';
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  top: 80px;  /* Reduced from 100px */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.back-button:hover::after {
+  opacity: 1;
+}
+
+@keyframes heartbeat {
+  0% {
+      transform: rotate(-45deg) scale(1);
+      box-shadow: 0 0 30px rgba(255, 51, 102, 0.5);
+  }
+  14% {
+      transform: rotate(-45deg) scale(1.1);
+      box-shadow: 0 0 40px rgba(255, 51, 102, 0.7);
+  }
+  28% {
+      transform: rotate(-45deg) scale(1);
+      box-shadow: 0 0 30px rgba(255, 51, 102, 0.5);
+  }
+  42% {
+      transform: rotate(-45deg) scale(1.1);
+      box-shadow: 0 0 40px rgba(255, 51, 102, 0.7);
+  }
+  70% {
+      transform: rotate(-45deg) scale(1);
+      box-shadow: 0 0 30px rgba(255, 51, 102, 0.5);
+  }
+}
+
+.back-button:hover .heart-icon {
+  transform: rotate(-45deg) scale(1.2);
+  filter: brightness(1.2);
+  box-shadow: 0 0 50px rgba(255, 51, 102, 0.9);
+}
