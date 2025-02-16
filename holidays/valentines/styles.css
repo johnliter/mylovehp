@@ -22,7 +22,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('//holidays/valentines/photos/vday.png'); /* Replace with your photo */
+    background-image: url('photos/vday.png'); /* Replace with your photo */
     background-size: cover;
     background-position: center;
     z-index: 1;
