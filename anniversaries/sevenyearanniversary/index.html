@@ -3,76 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Celebrate the 7th anniversary with a special message and falling hearts animation.">
-    <meta property="og:title" content="Happy Anniversary, Christina!">
-    <meta property="og:description" content="Celebrate love with a personalized message and beautiful falling hearts animation.">
+    <meta name="description" content="Celebrate 7 years of love with Christina through a cosmic tribute by John Liter.">
+    <meta name="keywords" content="anniversary, Christina, John Liter, love, cosmic">
+    <meta property="og:title" content="Happy 7th Anniversary, Christina!">
+    <meta property="og:description" content="A cosmic celebration of love with falling hearts and heartfelt messages.">
     <meta property="og:image" content="images/anime-space-background.png">
     <meta property="og:type" content="website">
-    <title>Happy Anniversary, Christina!</title>
+    <title>Happy 7th Anniversary, Christina!</title>
     <link rel="preload" href="images/anime-space-background.png" as="image">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <style>
-        body {
-            background-color: #000000;
-        }
-    </style>
-    <link rel="stylesheet" href="styles.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    
+<body class="relative">
+    <!-- Back Button -->
     <a href="https://johnliter.github.io/mylovehp/" rel="noopener noreferrer" class="back-button" aria-label="Return to homepage">
         <div class="heart-icon">
             <span class="back-text"></span>
         </div>
     </a>
-    <div class="space-background">
-        
-        <!-- Anniversary Message -->
-        <div class="message-container" role="main" aria-label="Anniversary Message">
-            <h1>Happy 7th Anniversary, to the that one and only special woman in my life! <br>🚀❤️</h1>
-            <p>
-                To the love of my life, <br>
-                my co-pilot in this adventure through the stars, <br>
-                Happy Anniversary! <br>
-                Thank you for making my universe brighter every day. <br>
-                You are the light of my life,<br>
-                and I am forever grateful for your presence. <br>
-                I love you to the moon and beyond! 💫
-            </p>
-            <p class="signature">Forever yours, <br> John</p>
-            <br>
-            <p>Click the buttons below to see what your getting!</p>
-        </div>
 
-        <!-- Canvas for falling hearts -->
+    <!-- Space Background and Hearts -->
+    <div class="space-background">
         <canvas id="hearts-canvas" aria-hidden="true"></canvas>
     </div>
 
-    <!-- Add modal HTML after canvas element -->
+    <!-- Anniversary Message -->
+    <main class="message-container" role="main" aria-label="Anniversary Message">
+        <h1 class="fade-in">Happy 7th Anniversary, My One and Only! 🚀❤️</h1>
+        <p class="fade-in delay-1">
+            To the love of my life, <br>
+            my co-pilot in this adventure through the stars, <br>
+            Happy Anniversary! <br>
+            Thank you for making my universe brighter every day. <br>
+            You are the light of my life, <br>
+            and I am forever grateful for your presence. <br>
+            I love you to the moon and beyond! 💫
+        </p>
+        <p class="signature fade-in delay-2">Forever yours, <br> John</p>
+        <p class="fade-in delay-3 mt-6">Click below for cosmic surprises!</p>
+    </main>
+
+    <!-- Coupon Buttons -->
+    <div class="coupon-container-fixed">
+        <button class="space-love-btn fade-in delay-4" onclick="showCosmicLoveCoupon()" aria-label="Cosmic Love Coupon">
+            <span class="btn-text">✨ Cosmic Love</span>
+        </button>
+        <button class="space-love-btn fade-in delay-5" onclick="showStellarAffectionPass()" aria-label="Stellar Affection Pass">
+            <span class="btn-text">🌟 Stellar Moments</span>
+        </button>
+        <button class="space-love-btn fade-in delay-6" onclick="showIntergalacticPromise()" aria-label="Intergalactic Promise">
+            <span class="btn-text">🌌 Eternal Promise</span>
+        </button>
+    </div>
+
+    <!-- Modal -->
     <div id="customModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn">&times;</span>
+            <span class="close-btn" aria-label="Close modal">&times;</span>
             <div id="modalMessage"></div>
         </div>
     </div>
 
-    <!-- Move this block just before closing </body> to keep the DOM structure clean -->
-    <div class="coupon-container-fixed">
-        <button class="space-love-btn" onclick="showCosmicLoveCoupon()">
-            <span class="btn-text">✨</span>
-        </button>
-        <button class="space-love-btn" onclick="showStellarAffectionPass()">
-            <span class="btn-text"> 🌟</span>
-        </button>
-        <button class="space-love-btn" onclick="showIntergalacticPromise()">
-            <span class="btn-text"> 🌌</span>
-        </button>
-    </div> 
+    <!-- Back-to-Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-pink-500 text-white p-3 rounded-full shadow-lg hover:bg-pink-600 transition opacity-0 z-50" aria-label="Back to top">
+        ↑
+    </button>
 
-    <!-- JavaScript for falling hearts -->
+    <!-- Scripts -->
     <script src="hearts.js" defer></script>
     <script src="script.js" defer></script>
-
 </body>
 </html>

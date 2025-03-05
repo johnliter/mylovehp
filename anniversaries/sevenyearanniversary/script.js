@@ -1,3 +1,4 @@
+// Modal functions (moved to global scope for onclick compatibility)
 function showCosmicLoveCoupon() {
     showModal("🌟 My Dearest Love,\n\nThis cosmic love coupon grants you infinite hugs and kisses!\n\nLove always,\nJohn 💫💖");
 }
@@ -17,15 +18,27 @@ function showModal(message) {
     modal.style.display = "block";
 }
 
-// Close button functionality
-document.querySelector('.close-btn').onclick = function() {
-    document.getElementById('customModal').style.display = "none";
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const backToTop = document.getElementById('backToTop');
 
-// Click outside modal to close
-window.onclick = function(event) {
-    const modal = document.getElementById('customModal');
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+    // Close modal
+    document.querySelector('.close-btn').addEventListener('click', () => {
+        document.getElementById('customModal').style.display = "none";
+    });
+
+    window.addEventListener('click', (event) => {
+        const modal = document.getElementById('customModal');
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Back-to-top
+    const toggleBackToTop = () => {
+        backToTop.classList.toggle('opacity-0', window.scrollY < 200);
+        backToTop.classList.toggle('opacity-100', window.scrollY >= 200);
+    };
+
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    window.addEventListener('scroll', toggleBackToTop);
+});

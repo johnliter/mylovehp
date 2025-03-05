@@ -5,30 +5,18 @@
     box-sizing: border-box;
 }
 
-body, html {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    font-family: 'Arial', sans-serif;
-    color: white;
-    margin: 0;
-    display: flex; /* Flexbox for centering */
-    align-items: center; /* Vertically center */
-    justify-content: center; /* Horizontally center */
+html {
+    scroll-behavior: smooth;
 }
 
-@media (max-width: 768px) {
-    .message-container {
-        width: 90%; /* Allow the container to shrink on smaller screens */
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    p {
-        font-size: 1rem;
-    }
+body {
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    background-color: #000000;
+    position: relative;
 }
 
 /* CSS Variables */
@@ -39,21 +27,9 @@ body, html {
     --shadow: rgba(255, 255, 255, 0.5);
 }
 
-/* Space-themed background */
-body, html {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    font-family: 'Arial', sans-serif;
-    color: white;
-    margin: 0; /* Ensure no margin pushes content */
-    display: flex; /* Flexbox for centering */
-    align-items: center; /* Vertically center */
-    justify-content: center; /* Horizontally center */
-}
-
+/* Space Background */
 .space-background {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -61,14 +37,7 @@ body, html {
     background: url('images/anime-space-background.png') no-repeat center center fixed;
     background-size: cover;
     animation: twinkle 10s infinite alternate;
-    will-change: filter;
     z-index: -1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    pointer-events: none;
 }
 
 .space-background::before {
@@ -79,132 +48,117 @@ body, html {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
-    -webkit-backdrop-filter: blur(1px); /* Safari support */
+    -webkit-backdrop-filter: blur(1px);
     backdrop-filter: blur(1px);
     z-index: 1;
-    pointer-events: none;
 }
 
-/* Twinkle effect for the background */
+/* Twinkle Animation */
 @keyframes twinkle {
     0% { filter: brightness(1); }
     100% { filter: brightness(1.2); }
 }
 
-/* Centered Message Styling */
+/* Message Container */
 .message-container {
-    margin-bottom: 100px;
     position: relative;
     z-index: 2;
-    max-width: 80%;
+    max-width: 90%;
+    width: 600px;
+    margin: 0 auto;
     padding: 2rem;
     text-align: center;
     background: var(--dark-overlay);
-    border-radius: 10px;
-    box-shadow: 0 0 20px var(--shadow);
-    z-index: 999;
+    border-radius: 15px;
+    box-shadow: 0 0 30px var(--shadow);
+    top: 20vh;
 }
 
-.message-container:focus-within {
-    outline: 2px solid var(--primary-pink);
-    outline-offset: 4px;
+/* Fade-In Animation */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1.0s; }
+.delay-6 { animation-delay: 1.2s; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
+/* Typography */
 h1 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--primary-pink);
+    line-height: 1.2;
 }
 
 p {
     font-size: 1.2rem;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .signature {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     font-style: italic;
     color: var(--light-pink);
 }
 
-/* Falling hearts canvas */
+/* Hearts Canvas */
 #hearts-canvas {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 0; /* Ensure it's below everything */
+    z-index: 0;
 }
 
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-    .message-container {
-        width: 90%; /* Allow the container to shrink on smaller screens */
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    p {
-        font-size: 1rem;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .space-background {
-        animation: none;
-    }
-}
-
-/*  Back Button */
-
+/* Back Button */
 .back-button {
     position: fixed;
     top: 20px;
     left: 20px;
-    z-index: 1000;
+    z-index: 100;
     text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80px;  /* Reduced from 100px */
-    height: 100px;  /* Reduced from 120px */
+    width: 80px;
+    height: 100px;
 }
 
 .heart-icon {
-    width: 50px;  /* Reduced from 70px */
-    height: 50px; /* Reduced from 70px */
+    width: 50px;
+    height: 50px;
     background-color: #ff3366;
     position: relative;
     transform: rotate(-45deg);
     transition: all 0.3s ease;
-    margin: 10px; /* Reduced from 15px */
+    margin: 10px;
     animation: heartbeat 1.5s ease-in-out infinite;
-    box-shadow: 0 0 30px rgba(255, 51, 102, 0.5);
+    box-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
 }
 
 .heart-icon:before,
 .heart-icon:after {
     content: '';
-    width: 50px;  /* Reduced from 70px */
-    height: 50px; /* Reduced from 70px */
+    width: 50px;
+    height: 50px;
     position: absolute;
     border-radius: 50%;
     background-color: #ff3366;
 }
 
-.heart-icon:before {
-    top: -25px;  /* Reduced from -35px */
-    left: 0;
-}
-
-.heart-icon:after {
-    top: 0;
-    left: 25px;  /* Reduced from 35px */
-}
+.heart-icon:before { top: -25px; left: 0; }
+.heart-icon:after { top: 0; left: 25px; }
 
 .back-button::after {
     content: 'Back to Homepage';
@@ -212,47 +166,39 @@ p {
     color: white;
     font-size: 14px;
     font-family: Arial, sans-serif;
-    top: 80px;  /* Reduced from 100px */
+    top: 80px;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.3s ease;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
     white-space: nowrap;
     pointer-events: none;
 }
 
-.back-button:hover::after {
-    opacity: 1;
-}
-
-@keyframes heartbeat {
-    0% {
-        transform: rotate(-45deg) scale(1);
-        box-shadow: 0 0 30px rgba(255, 51, 102, 0.5);
-    }
-    14% {
-        transform: rotate(-45deg) scale(1.1);
-        box-shadow: 0 0 40px rgba(255, 51, 102, 0.7);
-    }
-    28% {
-        transform: rotate(-45deg) scale(1);
-        box-shadow: 0 0 30px rgba(255, 51, 102, 0.5);
-    }
-    42% {
-        transform: rotate(-45deg) scale(1.1);
-        box-shadow: 0 0 40px rgba(255, 51, 102, 0.7);
-    }
-    70% {
-        transform: rotate(-45deg) scale(1);
-        box-shadow: 0 0 30px rgba(255, 51, 102, 0.5);
-    }
-}
-
+.back-button:hover::after { opacity: 1; }
 .back-button:hover .heart-icon {
     transform: rotate(-45deg) scale(1.2);
     filter: brightness(1.2);
-    box-shadow: 0 0 50px rgba(255, 51, 102, 0.9);
+    box-shadow: 0 0 30px rgba(255, 51, 102, 0.9);
+}
+
+@keyframes heartbeat {
+    0%, 28%, 70% { transform: rotate(-45deg) scale(1); box-shadow: 0 0 20px rgba(255, 51, 102, 0.5); }
+    14%, 42% { transform: rotate(-45deg) scale(1.1); box-shadow: 0 0 30px rgba(255, 51, 102, 0.7); }
+}
+
+/* Coupon Buttons */
+.coupon-container-fixed {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }
 
 .space-love-btn {
@@ -260,17 +206,13 @@ p {
     border: none;
     border-radius: 25px;
     color: white;
-    padding: 8px 20px; /* Reduced padding */
-    font-size: 16px; /* Reduced font size */
+    padding: 8px 20px;
+    font-size: 16px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    min-width: 200px; /* Reduced minimum width */
-    margin: 10px;
-    z-index: 3;
-    position: relative;
+    min-width: 180px;
+    margin: 5px;
 }
 
 .space-love-btn:hover {
@@ -279,32 +221,7 @@ p {
     background: linear-gradient(45deg, #7597de, #2b1055);
 }
 
-.btn-text {
-    position: relative;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.coupon-container-fixed {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 9999;
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping */
-    gap: 10px; /* Add spacing between buttons */
-    justify-content: center; /* Center the buttons */
-}
-
-/* Responsive layout for smaller screens */
-@media (max-width: 600px) {
-    .coupon-container-fixed {
-        flex-direction: column; /* Stack buttons vertically on small screens */
-        gap: 10px; /* Add spacing between buttons */
-    }
-}
-/* Add these styles */
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -313,7 +230,7 @@ p {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     animation: fadeIn 0.3s;
 }
 
@@ -321,42 +238,45 @@ p {
     background: linear-gradient(45deg, #2b1055, #7597de);
     margin: 15% auto;
     padding: 20px;
-    border: 2px solid #ffffff3d;
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 15px;
-    width: 80%;
+    width: 90%;
     max-width: 500px;
-    position: relative;
     color: white;
-    box-shadow: 0 0 30px rgba(255,255,255,0.2);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
     animation: slideIn 0.3s;
 }
 
 .close-btn {
-    color: #ffffff;
+    color: white;
     float: right;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
 }
 
-.close-btn:hover {
-    color: #ff69b4;
-}
+.close-btn:hover { color: #ff69b4; }
 
 #modalMessage {
-    white-space: pre-line;
     text-align: center;
     padding: 20px;
     font-size: 18px;
     line-height: 1.6;
 }
 
-@keyframes fadeIn {
-    from {opacity: 0}
-    to {opacity: 1}
+@keyframes slideIn {
+    from { transform: translateY(-100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
-@keyframes slideIn {
-    from {transform: translateY(-100px); opacity: 0}
-    to {transform: translateY(0); opacity: 1}
+/* Responsive */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    p { font-size: 1rem; }
+    .message-container { width: 90%; padding: 1.5rem; top: 15vh; }
+    .coupon-container-fixed { flex-direction: column; gap: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .space-background, .fade-in, .modal, .modal-content { animation: none; }
 }

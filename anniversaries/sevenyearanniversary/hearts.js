@@ -10,21 +10,21 @@ setCanvasSize();
 
 const hearts = [];
 const colors = ["#ff4d6d", "#ff6b81", "#ff878d", "#ffb3c1", "#ffc2d1"];
-
-// Check for reduced motion preference
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 class Heart {
     constructor() {
         this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height * -1; // Start off-screen
-        this.size = Math.random() * 15 + 5; // Random size
-        this.speedY = Math.random() * 3 + 2; // Falling speed
-        this.speedX = Math.random() * 2 - 1; // Slight horizontal drift
+        this.y = Math.random() * -canvas.height * 0.5; // Start higher off-screen
+        this.size = Math.random() * 15 + 5;
+        this.speedY = Math.random() * 2 + 1.5;
+        this.speedX = Math.random() * 1 - 0.5;
         this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.opacity = 1;
     }
     draw() {
         ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.opacity;
         ctx.beginPath();
         ctx.moveTo(this.x, this.y);
         ctx.bezierCurveTo(
@@ -43,38 +43,40 @@ class Heart {
     update() {
         this.y += this.speedY;
         this.x += this.speedX;
-        if (this.y > canvas.height) {
-            this.y = -10; // Reset to top
+        this.opacity = Math.max(0, 1 - this.y / canvas.height); // Fade out as it falls
+        if (this.y > canvas.height + this.size) {
+            this.y = -this.size;
             this.x = Math.random() * canvas.width;
+            this.opacity = 1;
         }
     }
 }
 
-// Create hearts
 function createHearts() {
-    const heartCount = prefersReducedMotion ? 50 : 100; // Fewer hearts if reduced motion is preferred
+    const heartCount = prefersReducedMotion ? 30 : 80; // Adjusted counts
     for (let i = 0; i < heartCount; i++) {
         hearts.push(new Heart());
     }
 }
 
-// Animate hearts
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    hearts.forEach((heart) => {
-        heart.update();
-        heart.draw();
+    hearts.forEach(heart => {
+        if (!prefersReducedMotion) {
+            heart.update();
+            heart.draw();
+        }
     });
     requestAnimationFrame(animate);
 }
 
-// Resize canvas and reset hearts on window resize
 window.addEventListener("resize", () => {
     setCanvasSize();
-    hearts.length = 0; // Clear hearts array
-    createHearts(); // Recreate hearts
+    hearts.length = 0;
+    createHearts();
 });
 
-// Start animation
-createHearts();
-animate();
+window.addEventListener("load", () => {
+    createHearts();
+    animate();
+});
