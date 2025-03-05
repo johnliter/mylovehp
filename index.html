@@ -3,76 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A tribute page with creations for Christina by John Liter">
     <title>Creations for the Love of My Life</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <link rel="icon" href="favicon-heart-8bit.png" type="image/png"> <!-- Add the 8-bit heart favicon -->
+    <link rel="icon" href="favicon-heart-8bit.png" type="image/png">
     <link rel="stylesheet" href="../components/back-button.css">
     <script src="script.js" defer></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 font-sans">
 
     <!-- Sticky Header -->
     <header class="bg-pink-500 text-white p-6 sticky top-0 z-50 shadow-lg">
-        <h1 class="text-4xl font-bold text-center">Creations for the Love of My Life</h1>
+        <h1 class="text-3xl sm:text-4xl font-bold text-center">Creations for the Love of My Life</h1>
     </header>
 
     <!-- Search Functionality -->
-    <div class="flex justify-center mt-6">
-        <input type="text" id="searchInput" placeholder="Search by reason (e.g., Birthday, Anniversary, etc.)" class="p-2 border rounded-lg w-1/2">
+    <div class="flex justify-center mt-6 px-4">
+        <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search by reason (e.g., Birthday, Anniversary, Poem)" 
+            class="p-2 border rounded-lg w-full max-w-md focus:outline-none focus:ring-2 focus:ring-pink-500"
+            aria-label="Search creations by reason">
     </div>
 
     <!-- Grid Layout for Creations -->
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6">
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6 max-w-7xl mx-auto" aria-label="Creations gallery">
         <!-- Birthday Creation -->
-        <div class="bg-white p-4 rounded-lg shadow-lg card" data-reason="birthday">
-            <img src="images\31stbday.jpg" alt="Creation 1" class="w-full h-48 object-cover rounded-t-lg">
+        <article class="bg-white p-4 rounded-lg shadow-lg card transition-transform hover:scale-105" data-reason="birthday">
+            <img 
+                src="images/31stbday.jpg" 
+                alt="31st Birthday creation for Christina" 
+                class="w-full h-48 object-cover rounded-t-lg" 
+                loading="lazy">
             <div class="mt-4">
-                <h2 class="text-2xl font-semibold">31st Birthday</h2>
-                <p class="text-gray-500">Date: September 23, 2024</p>
-                <p class="text-gray-500">Reason: Birthday</p>
-                <a href="birthdays/thirtyfirst/index.html" rel="noopener" class="text-blue-500 underline">View Project</a>
+                <h2 class="text-xl sm:text-2xl font-semibold">31st Birthday</h2>
+                <p class="text-gray-500 text-sm">Date: September 23, 2024</p>
+                <p class="text-gray-500 text-sm">Reason: Birthday</p>
+                <a 
+                    href="birthdays/thirtyfirst/index.html" 
+                    rel="noopener" 
+                    class="text-blue-500 underline hover:text-blue-700">View Project</a>
             </div>
-        </div>
+        </article>
 
-        <!-- Just because Poem -->
-        <div class="bg-white p-4 rounded-lg shadow-lg card" data-reason="poem">
-            <img src="images/heart.jpg" alt="Creation 2" class="w-full h-48 object-cover rounded-t-lg">
+        <!-- Just Because Poem -->
+        <article class="bg-white p-4 rounded-lg shadow-lg card transition-transform hover:scale-105" data-reason="poem">
+            <img 
+                src="images/heart.jpg" 
+                alt="Poem creation for Christina" 
+                class="w-full h-48 object-cover rounded-t-lg" 
+                loading="lazy">
             <div class="mt-4">
-                <h2 class="text-2xl font-semibold">Poem</h2>
-                <p class="text-gray-500">Date: October 1, 2024</p>
-                <p class="text-gray-500">Reason: Poem</p>
-                <a href="poems/poem10012024.html" rel="noopener" class="text-blue-500 underline">View Project</a>
+                <h2 class="text-xl sm:text-2xl font-semibold">Poem</h2>
+                <p class="text-gray-500 text-sm">Date: October 1, 2024</p>
+                <p class="text-gray-500 text-sm">Reason: Just Because</p>
+                <a 
+                    href="poems/poem10012024.html" 
+                    rel="noopener" 
+                    class="text-blue-500 underline hover:text-blue-700">View Project</a>
             </div>
-        </div>
+        </article>
 
-        <!-- 7th Anniversary-->
-        <div class="bg-white p-4 rounded-lg shadow-lg card" data-reason="poem">
-            <img src="images/sevenyears.jpg" alt="Creation 3" class="w-full h-48 object-cover rounded-t-lg">
+        <!-- 7th Anniversary -->
+        <article class="bg-white p-4 rounded-lg shadow-lg card transition-transform hover:scale-105" data-reason="anniversary">
+            <img 
+                src="images/sevenyears.jpg" 
+                alt="7th Anniversary creation for Christina" 
+                class="w-full h-48 object-cover rounded-t-lg" 
+                loading="lazy">
             <div class="mt-4">
-                <h2 class="text-2xl font-semibold">7th Anniversary</h2>
-                <p class="text-gray-500">Date: December 27, 2024</p>
-                <p class="text-gray-500">Reason: Anniversary</p>
-                <a href="anniversaries/sevenyearanniversary/index.html" rel="noopener" class="text-blue-500 underline">View Project</a>
+                <h2 class="text-xl sm:text-2xl font-semibold">7th Anniversary</h2>
+                <p class="text-gray-500 text-sm">Date: December 27, 2024</p>
+                <p class="text-gray-500 text-sm">Reason: Anniversary</p>
+                <a 
+                    href="anniversaries/sevenyearanniversary/index.html" 
+                    rel="noopener" 
+                    class="text-blue-500 underline hover:text-blue-700">View Project</a>
             </div>
-        </div>
+        </article>
 
-        <!-- 7th Anniversary-->
-        <div class="bg-white p-4 rounded-lg shadow-lg card" data-reason="poem">
-            <img src="holidays/valentines/photos/vday.png" alt="Creation 3" class="w-full h-48 object-cover rounded-t-lg">
+        <!-- Valentine's Day 2025 -->
+        <article class="bg-white p-4 rounded-lg shadow-lg card transition-transform hover:scale-105" data-reason="valentines">
+            <img 
+                src="holidays/valentines/photos/vday.png" 
+                alt="Valentine's Day 2025 creation for Christina" 
+                class="w-full h-48 object-cover rounded-t-lg" 
+                loading="lazy">
             <div class="mt-4">
-                <h2 class="text-2xl font-semibold">Valentines Days 2025</h2>
-                <p class="text-gray-500">Date: February 14, 2025</p>
-                <p class="text-gray-500">Reason: Valentines Day</p>
-                <a href="holidays/valentines/index.html" rel="noopener" class="text-blue-500 underline">View Project</a>
+                <h2 class="text-xl sm:text-2xl font-semibold">Valentine's Day 2025</h2>
+                <p class="text-gray-500 text-sm">Date: February 14, 2025</p>
+                <p class="text-gray-500 text-sm">Reason: Valentine's Day</p>
+                <a 
+                    href="holidays/valentines/index.html" 
+                    rel="noopener" 
+                    class="text-blue-500 underline hover:text-blue-700">View Project</a>
             </div>
-        </div>
+        </article>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-purple-500 text-center text-white p-4">
-        <p>This page was lovingly created by John Liter for Christina</p>
+    <footer class="bg-purple-500 text-center text-white p-4 mt-8">
+        <p class="text-sm">This page was lovingly created by John Liter for Christina</p>
     </footer>
 
-    <!-- Include the TailwindCSS CDN and JavaScript -->
 </body>
 </html>
