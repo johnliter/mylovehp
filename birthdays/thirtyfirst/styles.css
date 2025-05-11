@@ -2,14 +2,19 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    overflow-x: hidden; /* Prevent horizontal scroll from confetti */
+}
+
+/* Rain Container */
 .rain-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 999;
+    z-index: 10;
     overflow: hidden;
 }
 
@@ -18,94 +23,110 @@ html {
     width: 10px;
     height: 10px;
     background-color: transparent;
-    border-radius: 50%; /* By default, circles */
+    border-radius: 50%;
     animation: fall linear infinite;
-    opacity: 0; /* Start invisible */
+    opacity: 0;
 }
 
 @keyframes fall {
     0% {
-        transform: translateY(-100%); /* Starts above the viewport */
-        opacity: 0.8; /* Becomes visible as it falls */
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0.8;
     }
     100% {
-        transform: translateY(100vh); /* Ends below the viewport */
-        opacity: 0; /* Fades out as it exits the screen */
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
     }
 }
 
-/* Confetti colors */
-.confetti.pink { background-color: pink; }
-.confetti.purple { background-color: purple; }
-.confetti.skyblue { background-color: skyblue; }
-.confetti.yellow { background-color: yellow; }
-.confetti.green { background-color: lightgreen; }
+/* Confetti colors and shapes */
+.confetti.pink { background-color: #ff69b4; }
+.confetti.purple { background-color: #8a4af3; }
+.confetti.skyblue { background-color: #87ceeb; }
+.confetti.yellow { background-color: #ffd700; }
+.confetti.green { background-color: #98fb98; }
+.confetti.square { border-radius: 0%; }
+.confetti.rectangle { width: 5px; height: 15px; border-radius: 0%; }
 
-/* Confetti shapes */
-.confetti.square { border-radius: 0%; } /* Makes confetti square */
-.confetti.rectangle { width: 5px; height: 15px; border-radius: 0%; } /* Tall rectangles */
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+.fade-in:nth-child(1) { animation-delay: 0.1s; }
+.fade-in:nth-child(2) { animation-delay: 0.2s; }
+.fade-in:nth-child(3) { animation-delay: 0.3s; }
+.fade-in:nth-child(4) { animation-delay: 0.4s; }
+.fade-in:nth-child(5) { animation-delay: 0.5s; }
+.fade-in:nth-child(6) { animation-delay: 0.6s; }
+.fade-in:nth-child(7) { animation-delay: 0.7s; }
+.fade-in:nth-child(8) { animation-delay: 0.8s; }
+.fade-in:nth-child(9) { animation-delay: 0.9s; }
 
-/* Sticky header */
+/* Sticky Header */
 header {
     position: sticky;
     top: 0;
-    z-index: 1000;
-    background-color: white; /* Set background color to white */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better separation */
+    z-index: 50;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Emphasize the first letter of each word */
+/* Section Headers */
 section h2::first-letter {
-    font-size: 3rem; /* Larger font size for the first letter */
-    color: #ff69b4; /* Different color for emphasis (hot pink) */
-    font-weight: bold; /* Bold the first letter */
+    font-size: 3.5rem;
+    color: #ff1493;
+    font-weight: bold;
 }
 
-/*  Back Button */
-
+/* Back Button */
 .back-button {
     position: fixed;
     top: 20px;
     left: 20px;
-    z-index: 1000;
+    z-index: 100;
     text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80px;  /* Reduced from 100px */
-    height: 100px;  /* Reduced from 120px */
+    width: 80px;
+    height: 100px;
 }
 
 .heart-icon {
-    width: 50px;  /* Reduced from 70px */
-    height: 50px; /* Reduced from 70px */
+    width: 50px;
+    height: 50px;
     background-color: #ff3366;
     position: relative;
     transform: rotate(-45deg);
     transition: all 0.3s ease;
-    margin: 10px; /* Reduced from 15px */
+    margin: 10px;
     animation: heartbeat 1.5s ease-in-out infinite;
-    box-shadow: 0 0 30px rgba(255, 51, 102, 0.5);
+    box-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
 }
 
 .heart-icon:before,
 .heart-icon:after {
     content: '';
-    width: 50px;  /* Reduced from 70px */
-    height: 50px; /* Reduced from 70px */
+    width: 50px;
+    height: 50px;
     position: absolute;
     border-radius: 50%;
     background-color: #ff3366;
 }
 
 .heart-icon:before {
-    top: -25px;  /* Reduced from -35px */
+    top: -25px;
     left: 0;
 }
 
 .heart-icon:after {
     top: 0;
-    left: 25px;  /* Reduced from 35px */
+    left: 25px;
 }
 
 .back-button::after {
@@ -114,12 +135,12 @@ section h2::first-letter {
     color: white;
     font-size: 14px;
     font-family: Arial, sans-serif;
-    top: 80px;  /* Reduced from 100px */
+    top: 80px;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.3s ease;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
     white-space: nowrap;
     pointer-events: none;
 }
@@ -128,31 +149,30 @@ section h2::first-letter {
     opacity: 1;
 }
 
-@keyframes heartbeat {
-    0% {
-        transform: rotate(-45deg) scale(1);
-        box-shadow: 0 0 30px rgba(255, 51, 102, 0.5);
-    }
-    14% {
-        transform: rotate(-45deg) scale(1.1);
-        box-shadow: 0 0 40px rgba(255, 51, 102, 0.7);
-    }
-    28% {
-        transform: rotate(-45deg) scale(1);
-        box-shadow: 0 0 30px rgba(255, 51, 102, 0.5);
-    }
-    42% {
-        transform: rotate(-45deg) scale(1.1);
-        box-shadow: 0 0 40px rgba(255, 51, 102, 0.7);
-    }
-    70% {
-        transform: rotate(-45deg) scale(1);
-        box-shadow: 0 0 30px rgba(255, 51, 102, 0.5);
-    }
-}
-
 .back-button:hover .heart-icon {
     transform: rotate(-45deg) scale(1.2);
     filter: brightness(1.2);
-    box-shadow: 0 0 50px rgba(255, 51, 102, 0.9);
+    box-shadow: 0 0 30px rgba(255, 51, 102, 0.9);
+}
+
+@keyframes heartbeat {
+    0%, 28%, 70% {
+        transform: rotate(-45deg) scale(1);
+        box-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
+    }
+    14%, 42% {
+        transform: rotate(-45deg) scale(1.1);
+        box-shadow: 0 0 30px rgba(255, 51, 102, 0.7);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    section h2 { font-size: 2rem; }
+    section h2::first-letter { font-size: 2.5rem; }
+    .back-button { width: 60px; height: 80px; }
+    .heart-icon, .heart-icon:before, .heart-icon:after { width: 40px; height: 40px; }
+    .heart-icon:before { top: -20px; }
+    .heart-icon:after { left: 20px; }
+    .back-button::after { top: 60px; font-size: 12px; }
 }

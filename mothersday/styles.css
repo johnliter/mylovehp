@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff9f9;
+    color: #5a3e36;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    text-align: center;
+    padding: 40px 0;
+    position: relative;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #d23669;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #8b5a2b;
+    margin-bottom: 30px;
+}
+
+.main-content {
+    background-color: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.message {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.highlight {
+    color: #d23669;
+    font-weight: 600;
+}
+
+.children-count {
+    font-size: 2.5rem;
+    color: #d23669;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.floral-decoration {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.floral-1 {
+    top: 50px;
+    left: 50px;
+    transform: rotate(-15deg);
+}
+
+.floral-2 {
+    bottom: 30px;
+    right: 50px;
+    transform: rotate(25deg);
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    color: #8b5a2b;
+}
+
+/* Animation elements */
+.pollen {
+    position: fixed;
+    background-color: #ffd700;
+    border-radius: 50%;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.leaf {
+    position: fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    color: #ff6b81;
+    animation: float 4s ease-in-out infinite;
+    opacity: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .main-content {
+        padding: 30px 20px;
+    }
+    
+    .message {
+        font-size: 1rem;
+    }
+}
+
+/* Back Button */
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    height: 100px;
+}
+
+.heart-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #ff3366;
+    position: relative;
+    transform: rotate(-45deg);
+    transition: all 0.3s ease;
+    margin: 10px;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
+}
+
+.heart-icon:before,
+.heart-icon:after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #ff3366;
+}
+
+.heart-icon:before {
+    top: -25px;
+    left: 0;
+}
+
+.heart-icon:after {
+    top: 0;
+    left: 25px;
+}
+
+.back-button::after {
+    content: 'Back to Homepage';
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.back-button:hover::after {
+    opacity: 1;
+}
+
+.back-button:hover .heart-icon {
+    transform: rotate(-45deg) scale(1.2);
+    filter: brightness(1.2);
+    box-shadow: 0 0 30px rgba(255, 51, 102, 0.9);
+}
+
+@keyframes heartbeat {
+    0%, 28%, 70% {
+        transform: rotate(-45deg) scale(1);
+        box-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
+    }
+    14%, 42% {
+        transform: rotate(-45deg) scale(1.1);
+        box-shadow: 0 0 30px rgba(255, 51, 102, 0.7);
+    }
+}
