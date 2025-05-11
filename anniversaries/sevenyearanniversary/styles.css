@@ -96,8 +96,9 @@ body, html {
     margin-bottom: 100px;
     position: relative;
     z-index: 2;
-    max-width: 80%;
-    padding: 2rem;
+    max-width: 800px;
+    margin: 20px;
+    padding: 1rem;
     text-align: center;
     background: var(--dark-overlay);
     border-radius: 10px;
