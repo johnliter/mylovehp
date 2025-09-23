@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Happy Birthday, Christina</title>
+<style>
+  :root{
+    --ink:#2b2234; --sub:#5f4e70;
+    --g1:#ffd1dc; --g2:#e9d7ff; --g3:#d4fff3; --g4:#ffe3c2;
+    --glass-bg: rgba(255,255,255,.18);
+    --glass-br: rgba(255,255,255,.45);
+    --ring: 0 12px 28px rgba(0,0,0,.12);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; font-family: ui-rounded,"SF Pro Rounded",Inter,system-ui;
+    color:var(--ink); overflow:hidden;
+    background:
+      radial-gradient(900px 600px at 10% 10%, var(--g1), transparent 60%),
+      radial-gradient(800px 500px at 90% 15%, var(--g2), transparent 60%),
+      radial-gradient(700px 500px at 20% 90%, var(--g3), transparent 60%),
+      radial-gradient(700px 500px at 80% 85%, var(--g4), transparent 60%),
+      linear-gradient(120deg, var(--g1), var(--g2), var(--g3), var(--g4));
+    background-size: 220% 220%;
+    animation: bgShift 18s ease-in-out infinite alternate;
+  }
+  @keyframes bgShift{
+    0%{background-position:0% 0%}
+    100%{background-position:100% 100%}
+  }
+  .wrap{min-height:100%;display:grid;place-items:center;padding:20px}
+  .card{
+    position:relative;width:min(800px,95vw);
+    padding:clamp(22px,5vw,48px);
+    border-radius:28px;text-align:center;
+    background:var(--glass-bg);border:1px solid var(--glass-br);
+    box-shadow:var(--ring);backdrop-filter:blur(14px) saturate(160%);
+    -webkit-backdrop-filter:blur(14px) saturate(160%);
+    isolation:isolate;
+  }
+  .card::before{
+    content:"";position:absolute;inset:-2px;border-radius:inherit;
+    background:conic-gradient(from 0deg,#ff9bc8,#c7a6ff,#9ff6e8,#ffe0b5,#ff9bc8);
+    filter:blur(14px) saturate(140%);opacity:.35;z-index:-1;
+    animation:ring 8s linear infinite;
+  }
+  @keyframes ring{to{transform:rotate(360deg)}}
+  .head{
+    font-weight:900;font-size:clamp(30px,7vw,60px);margin:0 0 10px;
+    background:linear-gradient(90deg,#ff5ea4,#b18aff,#41dac6);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .type{font-size:clamp(14px,3.8vw,18px);color:var(--sub);margin-bottom:12px}
+  .polaroid{
+    margin:14px auto 8px;width:min(360px,85%);aspect-ratio:1/1;
+    border-radius:18px;overflow:hidden;
+    background:linear-gradient(#fff,#fff) padding-box,
+               linear-gradient(135deg,#ffc2dd,#c7a6ff) border-box;
+    border:3px solid transparent;box-shadow:0 16px 32px rgba(0,0,0,.1);
+  }
+  .polaroid img{width:100%;height:100%;object-fit:cover;display:block}
+  .msg{margin:10px auto 0;max-width:60ch;
+       font-size:clamp(16px,4vw,20px);line-height:1.65;color:#2e1f3a}
+  .reasons{margin:14px auto 0;font-weight:800;color:#6b5982}
+  .reasons .swap{
+    background:linear-gradient(90deg,#ff79b0,#c7a6ff);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:shimmer 3s ease-in-out infinite
+  }
+  @keyframes shimmer{50%{filter:brightness(1.25)}}
+  .sig{margin-top:14px;font-weight:900;color:#ff3e7f}
+  canvas#fx{position:fixed;inset:0;z-index:0;pointer-events:none}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<main class="wrap">
+  <section class="card">
+    <h1 class="head">Happy 32<sup>nd</sup> Birthday!</h1>
+    <div class="type" id="type"></div>
+
+    <!-- Fixed photo path -->
+    <div class="polaroid">
+      <img src="images/christina-favorite.jpeg" alt="Christina"/>
+    </div>
+
+    <div class="msg">
+      You are my heart, my joy, and my always. Every laugh, every late-night talk, every quiet moment—we’ve built a life I’m endlessly grateful for. Today is for you: to feel loved, celebrated, and treasured, the way you are to me every single day.
+    </div>
+
+    <div class="reasons">
+      Because you are <span class="swap" id="swap">kind</span>.
+    </div>
+
+    <div class="sig">— John</div>
+  </section>
+</main>
+
+<script>
+/* Typewriter */
+const typeEl=document.getElementById('type');
+const line="My Love, today we celebrate you—fully, loudly, joyfully.";
+let i=0; (function type(){ if(i<=line.length){typeEl.textContent=line.slice(0,i++); setTimeout(type,30)} })();
+
+/* Rotating words */
+const swap=document.getElementById('swap');
+const words=["kind","brilliant","steady","funny","brave","tender","unstoppable","our home"];
+let wi=0; setInterval(()=>{wi=(wi+1)%words.length; swap.textContent=words[wi]},1600);
+
+/* Confetti */
+const cvs=document.getElementById('fx'),ctx=cvs.getContext('2d');
+let W,H,pieces=[],last=0; function resize(){W=cvs.width=innerWidth;H=cvs.height=innerHeight}
+resize(); addEventListener('resize',resize);
+function rand(a,b){return a+Math.random()*(b-a)}
+function newPiece(x=rand(0,W),y=-20,burst=false){
+  const colors=['#ff79b0','#c7a6ff','#9ff6e8','#ffe0b5','#ff3e7f'];
+  pieces.push({x,y,vx:burst?rand(-1.5,1.5):rand(-.4,.4),
+               vy:burst?rand(1.2,3):rand(.8,1.8),
+               r:rand(6,12),a:rand(0,Math.PI*2),
+               spin:rand(-.1,.1),
+               c:colors[Math.floor(Math.random()*colors.length)],
+               s:['rect','circle','ribbon'][Math.floor(Math.random()*3)]});
+}
+setInterval(()=>{for(let k=0;k<12;k++)newPiece()},260);
+addEventListener('pointerdown',e=>{for(let k=0;k<80;k++)newPiece(e.clientX,e.clientY,true)},{passive:true});
+function draw(t){
+  const dt=(t-last)/16; last=t; ctx.clearRect(0,0,W,H);
+  for(const p of pieces){
+    p.x+=p.vx*dt; p.y+=p.vy*dt; p.a+=p.spin*dt;
+    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.a); ctx.fillStyle=p.c;
+    if(p.s==='rect'){ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r*.7)}
+    else if(p.s==='circle'){ctx.beginPath();ctx.arc(0,0,p.r*0.45,0,Math.PI*2);ctx.fill()}
+    else{ctx.beginPath();ctx.moveTo(-p.r/2,0);ctx.quadraticCurveTo(0,-p.r/2,p.r/2,0);
+         ctx.quadraticCurveTo(0,p.r/2,-p.r/2,0);ctx.fill()}
+    ctx.restore();
+  }
+  pieces=pieces.filter(p=>p.y<H+40&&p.x>-40&&p.x<W+40);
+  requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>
