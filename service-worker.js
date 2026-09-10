@@ -1,10 +1,13 @@
-const CACHE_NAME = "our-story-v1";
+const CACHE_NAME = "our-story-v2";
 const CORE = [
   "./",
   "./index.html",
   "./styles.css",
   "./script.js",
   "./data/memories.json",
+  "./data/milestones.json",
+  "./data/letters.json",
+  "./images/hero-wedding.jpg",
   "./images/31stbday.jpg",
   "./images/heart.jpg",
   "./images/sevenyears.jpg",
