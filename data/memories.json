@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "updated": "2026-09-09",
+  "memories": [
+    {
+      "id": "birthday-31",
+      "title": "31st Birthday",
+      "date": "2024-09-23",
+      "type": "birthday",
+      "reason": "Birthday",
+      "image": "images/31stbday.jpg",
+      "path": "birthdays/thirtyfirst/index.html",
+      "description": "A birthday creation made especially for Christina."
+    },
+    {
+      "id": "poem-2024-10-01",
+      "title": "Just Because — A Poem",
+      "date": "2024-10-01",
+      "type": "poem",
+      "reason": "Just Because",
+      "image": "images/heart.jpg",
+      "path": "poems/poem10012024.html",
+      "description": "Words written simply because love does not need an occasion."
+    },
+    {
+      "id": "anniversary-7",
+      "title": "Seven Years Together",
+      "date": "2024-12-27",
+      "type": "anniversary",
+      "reason": "Anniversary",
+      "image": "images/sevenyears.jpg",
+      "path": "anniversaries/sevenyearanniversary/index.html",
+      "description": "A celebration of seven years of marriage."
+    },
+    {
+      "id": "valentines-2025",
+      "title": "Valentine's Day 2025",
+      "date": "2025-02-14",
+      "type": "holiday",
+      "reason": "Valentine's Day",
+      "image": "holidays/valentines/photos/vday.png",
+      "path": "holidays/valentines/index.html",
+      "description": "A Valentine's Day creation for Christina."
+    },
+    {
+      "id": "mothers-day-2025",
+      "title": "Mother's Day 2025",
+      "date": "2025-05-11",
+      "type": "holiday",
+      "reason": "Mother's Day",
+      "image": "images/mothersday.jpg",
+      "path": "mothersday/index.html",
+      "description": "A Mother's Day tribute made with love."
+    },
+    {
+      "id": "birthday-32",
+      "title": "32nd Birthday",
+      "date": "2025-09-23",
+      "type": "birthday",
+      "reason": "Birthday",
+      "image": "images/32bday.png",
+      "path": "birthdays/thirtysecond/32bday.html",
+      "description": "Another year, another page created just for Christina."
+    }
+  ]
+}
