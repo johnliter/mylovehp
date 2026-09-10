@@ -1,159 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A tribute page with creations for Christina by John Liter">
-    <title>Creations for the Love of My Life</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <link rel="icon" href="favicon-heart-8bit.png" type="image/png">
-    <link rel="stylesheet" href="../components/back-button.css">
-    <script src="script.js" defer></script>
-    <style>
-        /* Custom animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fade-in { animation: fadeIn 0.5s ease-out forwards; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Our Story — a living archive of John and Christina's life, love, memories, and creations.">
+  <meta name="theme-color" content="#161311">
+  <title>Our Story — John + Christina</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <script src="script.js" defer></script>
 </head>
-<body class="bg-gray-100 font-sans">
+<body>
+  <a class="skip-link" href="#memories">Skip to memories</a>
 
-    <!-- Sticky Header with Gradient -->
-    <header class="bg-gradient-to-r from-pink-500 to-purple-500 text-white p-6 sticky top-0 z-50 shadow-lg">
-        <h1 class="text-3xl sm:text-4xl font-bold text-center">Creations for the Love of My Life</h1>
-        <p class="text-center text-sm mt-2 opacity-80">A collection of heartfelt moments for Christina</p>
-    </header>
+  <header class="hero" id="top">
+    <nav class="nav shell" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Our Story home">
+        <span class="brand-mark">J+C</span>
+        <span>Our Story</span>
+      </a>
+      <div class="nav-links">
+        <a href="#story">Our Story</a>
+        <a href="#memories">Memories</a>
+        <a href="#forever">Forever</a>
+      </div>
+    </nav>
 
-    <!-- Search and Filter Section -->
-    <div class="flex flex-col items-center mt-6 px-4 space-y-4">
-        <input 
-            type="text" 
-            id="searchInput" 
-            placeholder="Search by reason (e.g., Birthday, Anniversary, Poem)" 
-            class="p-2 border rounded-lg w-full max-w-md focus:outline-none focus:ring-2 focus:ring-pink-500 shadow-sm"
-            aria-label="Search creations by reason">
-        <div class="flex space-x-2">
-            <button id="sortDateAsc" class="bg-pink-500 text-white px-3 py-1 rounded-lg hover:bg-pink-600 transition">Sort by Date ↑</button>
-            <button id="sortDateDesc" class="bg-pink-500 text-white px-3 py-1 rounded-lg hover:bg-pink-600 transition">Sort by Date ↓</button>
-        </div>
+    <div class="hero-content shell">
+      <p class="eyebrow">John + Christina</p>
+      <h1>A lifetime,<br><em>one memory at a time.</em></h1>
+      <p class="hero-copy">A living archive of the moments, words, celebrations, and creations that make up our story.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#memories">Explore our memories</a>
+        <a class="button ghost" href="#forever">See our time together</a>
+      </div>
     </div>
 
-    <!-- Grid Layout for Creations -->
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6 max-w-7xl mx-auto" aria-label="Creations gallery">
-        <!-- Birthday Creation -->
-        <article class="bg-white p-4 rounded-lg shadow-lg card transition-transform hover:scale-105 fade-in" data-reason="birthday" data-date="2024-09-23">
-            <img 
-                src="images/31stbday.jpg" 
-                alt="31st Birthday creation for Christina" 
-                class="w-full h-48 object-cover rounded-t-lg" 
-                loading="lazy">
-            <div class="mt-4">
-                <h2 class="text-xl sm:text-2xl font-semibold text-pink-600">31st Birthday</h2>
-                <p class="text-gray-500 text-sm">Date: September 23, 2024</p>
-                <p class="text-gray-500 text-sm">Reason: Birthday</p>
-                <a 
-                    href="birthdays/thirtyfirst/index.html" 
-                    rel="noopener" 
-                    class="text-blue-500 underline hover:text-blue-700">View Project</a>
-            </div>
-        </article>
+    <div class="hero-photo" aria-hidden="true">
+      <img src="images/sevenyears.jpg" alt="">
+    </div>
+  </header>
 
-        <!-- Just Because Poem -->
-        <article class="bg-white p-4 rounded-lg shadow-lg card transition-transform hover:scale-105 fade-in" data-reason="poem" data-date="2024-10-01">
-            <img 
-                src="images/heart.jpg" 
-                alt="Poem creation for Christina" 
-                class="w-full h-48 object-cover rounded-t-lg" 
-                loading="lazy">
-            <div class="mt-4">
-                <h2 class="text-xl sm:text-2xl font-semibold text-pink-600">Poem</h2>
-                <p class="text-gray-500 text-sm">Date: October 1, 2024</p>
-                <p class="text-gray-500 text-sm">Reason: Just Because</p>
-                <a 
-                    href="poems/poem10012024.html" 
-                    rel="noopener" 
-                    class="text-blue-500 underline hover:text-blue-700">View Project</a>
-            </div>
-        </article>
+  <main>
+    <section class="today-section shell" aria-labelledby="today-title">
+      <div class="today-card">
+        <p class="eyebrow">Today in our story</p>
+        <h2 id="today-title">Every day adds another line.</h2>
+        <p id="todayMessage">Our archive keeps growing with us.</p>
+      </div>
+    </section>
 
-        <!-- 7th Anniversary -->
-        <article class="bg-white p-4 rounded-lg shadow-lg card transition-transform hover:scale-105 fade-in" data-reason="anniversary" data-date="2024-12-27">
-            <img 
-                src="images/sevenyears.jpg" 
-                alt="7th Anniversary creation for Christina" 
-                class="w-full h-48 object-cover rounded-t-lg" 
-                loading="lazy">
-            <div class="mt-4">
-                <h2 class="text-xl sm:text-2xl font-semibold text-pink-600">7th Anniversary</h2>
-                <p class="text-gray-500 text-sm">Date: December 27, 2024</p>
-                <p class="text-gray-500 text-sm">Reason: Anniversary</p>
-                <a 
-                    href="anniversaries/sevenyearanniversary/index.html" 
-                    rel="noopener" 
-                    class="text-blue-500 underline hover:text-blue-700">View Project</a>
-            </div>
-        </article>
+    <section class="intro shell" id="story">
+      <div>
+        <p class="eyebrow">Why this exists</p>
+        <h2>I built this because creating things for you is one of the ways I say, “I love you.”</h2>
+      </div>
+      <p>This began as a collection of birthday pages, poems, anniversaries, and little surprises. Now it is becoming something bigger: a permanent home for our story that can keep growing for the rest of our lives.</p>
+    </section>
 
-        <!-- Valentine's Day 2025 -->
-        <article class="bg-white p-4 rounded-lg shadow-lg card transition-transform hover:scale-105 fade-in" data-reason="valentines" data-date="2025-02-14">
-            <img 
-                src="holidays/valentines/photos/vday.png" 
-                alt="Valentine's Day 2025 creation for Christina" 
-                class="w-full h-48 object-cover rounded-t-lg" 
-                loading="lazy">
-            <div class="mt-4">
-                <h2 class="text-xl sm:text-2xl font-semibold text-pink-600">Valentine's Day 2025</h2>
-                <p class="text-gray-500 text-sm">Date: February 14, 2025</p>
-                <p class="text-gray-500 text-sm">Reason: Valentine's Day</p>
-                <a 
-                    href="holidays/valentines/index.html" 
-                    rel="noopener" 
-                    class="text-blue-500 underline hover:text-blue-700">View Project</a>
-            </div>
-        </article>
+    <section class="forever-section" id="forever">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow">Forever, measured</p>
+          <h2>Still counting.</h2>
         </div>
-
-        <!-- Mother's Day 2025-->
-        <div class="bg-white p-4 rounded-lg shadow-lg card" data-reason="poem">
-            <img src="images/mothersday.jpg" alt="Creation 4" class="w-full h-48 object-cover rounded-t-lg">
-            <div class="mt-4">
-                <h2 class="text-2xl font-semibold">Mothers Day</h2>
-                <p class="text-gray-500">Date: May 11, 2025</p>
-                <p class="text-gray-500">Reason: Mother's Day</p>
-                <a href="mothersday/index.html" rel="noopener" class="text-blue-500 underline">View Project...</a>
-            </div>
+        <div class="counter-grid">
+          <article class="counter-card">
+            <span class="counter-value" id="marriedDays">—</span>
+            <span class="counter-label">days married</span>
+          </article>
+          <article class="counter-card">
+            <span class="counter-value" id="marriedYears">—</span>
+            <span class="counter-label">years of marriage</span>
+          </article>
+          <article class="counter-card">
+            <span class="counter-value" id="memoryCount">—</span>
+            <span class="counter-label">memories preserved here</span>
+          </article>
         </div>
-    
-    <!-- Birthday Creation -->
-        <article class="bg-white p-4 rounded-lg shadow-lg card transition-transform hover:scale-105 fade-in" data-reason="birthday" data-date="2024-09-23">
-            <img 
-                src="images/32bday.png" 
-                alt="32nd Birthday creation for Christina" 
-                class="w-full h-48 object-cover rounded-t-lg" 
-                loading="lazy">
-            <div class="mt-4">
-                <h2 class="text-xl sm:text-2xl font-semibold text-pink-600">32st Birthday</h2>
-                <p class="text-gray-500 text-sm">Date: September 23, 2025</p>
-                <p class="text-gray-500 text-sm">Reason: Birthday</p>
-                <a 
-                    href="birthdays/thirtysecond/32bday.html" 
-                    rel="noopener" 
-                    class="text-blue-500 underline hover:text-blue-700">View Project</a>
-            </div>
-        </article>
-</section>
-    <!-- Back-to-Top Button -->
-    <button id="backToTop" class="fixed bottom-6 right-6 bg-pink-500 text-white p-3 rounded-full shadow-lg hover:bg-pink-600 transition opacity-0" aria-label="Back to top">
-        ↑
-    </button>
+        <p class="counter-note">Married December 27, 2017. The counters update automatically.</p>
+      </div>
+    </section>
 
-    <!-- Footer with Gradient -->
-    <footer class="bg-gradient-to-r from-purple-500 to-pink-500 text-center text-white p-6 mt-8">
-        <p class="text-sm">This page was lovingly created by John Liter for Christina</p>
-        <p class="text-xs mt-2 opacity-80">Celebrating every moment together since 2017</p>
-    </footer>
+    <section class="archive shell" id="memories" aria-labelledby="memories-title">
+      <div class="section-heading archive-heading">
+        <div>
+          <p class="eyebrow">The archive</p>
+          <h2 id="memories-title">Our memories</h2>
+        </div>
+        <p>Birthdays, anniversaries, poems, holidays, and the moments made just because.</p>
+      </div>
 
+      <div class="archive-controls" aria-label="Memory filters">
+        <label class="search">
+          <span class="sr-only">Search memories</span>
+          <input id="searchInput" type="search" placeholder="Search our story…" autocomplete="off">
+        </label>
+        <div class="filters" id="filters">
+          <button class="filter active" data-filter="all" type="button">All</button>
+          <button class="filter" data-filter="birthday" type="button">Birthdays</button>
+          <button class="filter" data-filter="anniversary" type="button">Anniversaries</button>
+          <button class="filter" data-filter="holiday" type="button">Holidays</button>
+          <button class="filter" data-filter="poem" type="button">Poems</button>
+        </div>
+      </div>
+
+      <div id="timeline" class="timeline" aria-live="polite"></div>
+      <p id="emptyState" class="empty-state" hidden>No memories match that search yet.</p>
+    </section>
+
+    <section class="legacy">
+      <div class="shell legacy-inner">
+        <p class="eyebrow">For all the years ahead</p>
+        <blockquote>“This is not a finished website. It is a place we keep filling with our life.”</blockquote>
+        <p>Built by John for Christina. Not for clicks. Not for customers. Just because I love you.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <span>Our Story</span>
+      <span>John + Christina · Since 2017</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
 </body>
 </html>
