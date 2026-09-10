@@ -2,7 +2,16 @@
 
 This repository is a living digital archive created by John Liter for Christina.
 
-It began as a collection of birthday pages, poems, anniversary creations, holiday surprises, and things made simply because I love her. The goal now is bigger: preserve those creations and continue adding to them for the rest of our lives.
+It began as a collection of birthday pages, poems, anniversary creations, holiday surprises, and things made simply because I love her. The goal is bigger now: preserve those creations, the words around them, and the milestones between them for the rest of our lives.
+
+## What the archive contains
+
+The homepage now has four durable data layers:
+
+- `data/memories.json` — birthday, anniversary, holiday, poem, and special-creation entries.
+- `data/milestones.json` — major dates in the relationship timeline.
+- `data/letters.json` — letters and personal notes written for Christina.
+- Static HTML/CSS/JavaScript experiences — the original one-of-a-kind pages remain independent and preserved.
 
 ## Why this archive exists
 
@@ -32,28 +41,55 @@ The homepage can be hosted nearly anywhere, and the core site can still be opene
 4. Use an ISO date in `YYYY-MM-DD` format.
 5. Keep the original creation self-contained whenever possible.
 
-Example:
+## Adding a milestone
+
+Add a new object to `data/milestones.json`:
 
 ```json
 {
-  "id": "anniversary-20",
-  "title": "Twenty Years Together",
-  "date": "2037-12-27",
-  "type": "anniversary",
-  "reason": "Anniversary",
-  "image": "images/20-years.jpg",
-  "path": "anniversaries/twenty-years/index.html",
-  "description": "Twenty years of marriage."
+  "id": "example-milestone",
+  "date": "2030-01-01",
+  "label": "A chapter heading",
+  "title": "The milestone title.",
+  "description": "Why this date mattered."
 }
 ```
 
-The homepage automatically groups memories by year and supports search and filtering.
+Only add dates and details that are known. The point of the timeline is preservation, not filling every year.
+
+## Adding a letter
+
+Add a new object to `data/letters.json`:
+
+```json
+{
+  "id": "letter-example",
+  "label": "For Christina",
+  "title": "A title for the letter",
+  "paragraphs": [
+    "First paragraph.",
+    "Second paragraph."
+  ],
+  "signature": "Love, John"
+}
+```
 
 ## Important date
 
 Married: **December 27, 2017**
 
-The archive includes automatic marriage counters and date-aware “Today in our story” messages.
+The archive includes automatic marriage counters, date-aware “Today in our story” messages, and a Next Chapter counter that automatically looks toward Christina's birthday or the next anniversary.
+
+## Photo preservation
+
+The homepage hero uses a web-optimized copy of the wedding photo provided for the archive. Keep the full-resolution original separately with the family's original photo backups. Web copies are for display; originals are for preservation.
+
+For irreplaceable media, keep:
+
+1. Original full-resolution file.
+2. Web-optimized copy used by the site.
+3. At least one external-drive backup.
+4. At least one separate cloud backup.
 
 ## Long-term preservation
 
