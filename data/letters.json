@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "updated": "2026-09-09",
+  "letters": [
+    {
+      "id": "why-i-built-this",
+      "label": "For Christina",
+      "title": "Why I built this",
+      "paragraphs": [
+        "I created this page for the love of my life.",
+        "You understand how much I love to code, and you appreciate all the little things I do and create for you. This archive is one of them — a place for those little things to live together and keep growing with us."
+      ],
+      "signature": "Love, John"
+    }
+  ]
+}
