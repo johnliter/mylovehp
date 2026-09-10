@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Our Story — a living archive of John and Christina's life, love, memories, and creations.">
+  <meta name="description" content="Our Story — a living archive of John and Christina's life, love, memories, letters, and milestones.">
   <meta name="theme-color" content="#161311">
   <title>Our Story — John + Christina</title>
   <link rel="stylesheet" href="styles.css">
@@ -21,23 +21,31 @@
       </a>
       <div class="nav-links">
         <a href="#story">Our Story</a>
+        <a href="#journey">Timeline</a>
+        <a href="#letters">Letters</a>
         <a href="#memories">Memories</a>
         <a href="#forever">Forever</a>
       </div>
     </nav>
 
-    <div class="hero-content shell">
-      <p class="eyebrow">John + Christina</p>
-      <h1>A lifetime,<br><em>one memory at a time.</em></h1>
-      <p class="hero-copy">A living archive of the moments, words, celebrations, and creations that make up our story.</p>
-      <div class="hero-actions">
-        <a class="button primary" href="#memories">Explore our memories</a>
-        <a class="button ghost" href="#forever">See our time together</a>
+    <div class="hero-inner shell">
+      <div class="hero-content">
+        <p class="eyebrow">John + Christina</p>
+        <h1>A lifetime,<br><em>one memory at a time.</em></h1>
+        <p class="hero-copy">A living archive of the moments, words, celebrations, and creations that make up our story.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#journey">Follow our story</a>
+          <a class="button ghost" href="#memories">Explore our memories</a>
+        </div>
       </div>
-    </div>
 
-    <div class="hero-photo" aria-hidden="true">
-      <img src="images/sevenyears.jpg" alt="">
+      <figure class="hero-photo">
+        <img src="images/hero-wedding.jpg" alt="Wedding portrait of a couple holding hands outdoors">
+        <figcaption>
+          <span>December 27, 2017</span>
+          <strong>The day our forever began.</strong>
+        </figcaption>
+      </figure>
     </div>
   </header>
 
@@ -55,7 +63,31 @@
         <p class="eyebrow">Why this exists</p>
         <h2>I built this because creating things for you is one of the ways I say, “I love you.”</h2>
       </div>
-      <p>This began as a collection of birthday pages, poems, anniversaries, and little surprises. Now it is becoming something bigger: a permanent home for our story that can keep growing for the rest of our lives.</p>
+      <p>This began as a collection of birthday pages, poems, anniversaries, and little surprises. Now it is something bigger: a permanent home for our story that can keep growing for the rest of our lives.</p>
+    </section>
+
+    <section class="journey-section" id="journey" aria-labelledby="journey-title">
+      <div class="shell">
+        <div class="section-heading split-heading">
+          <div>
+            <p class="eyebrow">Our journey</p>
+            <h2 id="journey-title">The chapters that brought us here.</h2>
+          </div>
+          <p>Some dates become part of who we are. This timeline preserves the ones we never want to lose.</p>
+        </div>
+        <div id="milestoneTimeline" class="journey-timeline" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="letters-section" id="letters" aria-labelledby="letters-title">
+      <div class="shell letters-layout">
+        <div class="letters-intro">
+          <p class="eyebrow">Letters to Christina</p>
+          <h2 id="letters-title">Some things deserve more than a caption.</h2>
+          <p>Letters, thoughts, and words written for you can live here beside the memories they belong to.</p>
+        </div>
+        <div id="lettersGrid" class="letters-grid" aria-live="polite"></div>
+      </div>
     </section>
 
     <section class="forever-section" id="forever">
@@ -79,6 +111,14 @@
           </article>
         </div>
         <p class="counter-note">Married December 27, 2017. The counters update automatically.</p>
+      </div>
+    </section>
+
+    <section class="next-chapter shell" aria-labelledby="nextChapterTitle">
+      <div class="next-chapter-card">
+        <p class="eyebrow">The next chapter</p>
+        <h2 id="nextChapterTitle">The story is still being written.</h2>
+        <p id="nextChapterMessage">There will always be another date worth remembering.</p>
       </div>
     </section>
 
