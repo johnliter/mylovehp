@@ -1,0 +1,9 @@
+{
+  "name": "Our Story — John + Christina",
+  "short_name": "Our Story",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f6f0e8",
+  "theme_color": "#161311",
+  "description": "A living archive of John and Christina's story."
+}
